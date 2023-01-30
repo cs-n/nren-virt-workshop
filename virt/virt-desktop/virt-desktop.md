@@ -186,9 +186,20 @@ blockquote:after {
 ## Practical exercise
 
 - Install VirtualBox on your laptop
-  - if you have more than 1GB RAM and more than 5GB free hard drive space
+  - if you have more than 2GB RAM and more than 10GB free hard drive space
 - Create a VM and install Ubuntu within it
 - If you have time: install the VirtualBox Guest Additions and more VMs
+
+---
+
+## More info and documentation
+
+- VirtualBox Homepage
+  - [https://www.virtualbox.org/](https://www.virtualbox.org/)
+- End-user documentation
+  - [https://www.virtualbox.org/wiki/End-user_documentation](https://www.virtualbox.org/wiki/End-user_documentation)
+- User Manual
+  - [https://www.virtualbox.org/manual/UserManual.html](https://www.virtualbox.org/manual/UserManual.html)
 
 ---
 
