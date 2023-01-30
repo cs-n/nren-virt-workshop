@@ -28,11 +28,10 @@ CS | Chatur Ratna Shakya | chatur(at)pch(dot)net       | [PCH][1]       | Nepal
 
 |   DAY 1        | Topic                     | Inst    | Presentations                                     | Exercises                              |
 |------------------------|---------------------------|---------|---------------------------------------------------|----------------------------------------|
-| Session 1.1 | Welcome | CS | [PDF](virt/welcome-intro/welcome) |  |
-| | Introduction to Virtualization | CS | [PDF](virt/welcome-intro/intro-virt) |  |
-| Session 1.2.1 | Desktop Virtualization: VirtualBox | DK | [PDF](virt/virt-desktop/virt-desktop) | Lab: VirtualBox Installation [HTML](virt/virt-desktop/exercise1) |
-| Session 1.2.2 | Minimal configuration for Cisco IOS based equipment | SB | [PDF](virt/cisco-config-elements/cisco-config-elements.pdf) | Lab: IOS Configuration [HTML](virt/cisco-config-elements/exercises-cisco-config.html) |
-| Session 1.3    | Git and GitHub Basics (VCS) | RA    | [PDF](virt/git/git-overview.pdf)                   | Lab: Git and GitHub Hands-on [HTML](virt/git/exersise-git.html) |
+| Session 1.1.1 | Welcome | CS | [PDF](virt/welcome-intro/welcome) |  |
+| Session 1.1.2 | Introduction to Virtualization | CS | [PDF](virt/welcome-intro/intro-virt) |  |
+| Session 1.2 | Desktop Virtualization: VirtualBox | CS | [PDF](virt/virt-desktop/virt-desktop) | Lab: VirtualBox Installation [HTML](virt/virt-desktop/exercise1) |
+| Session 1.3    | Snapshots | CS    | [PDF](virt/virt-desktop/snapshots)                   | Lab: Snapshots [HTML](virt/virt-desktop/exersise2) |
 | Session 1.4    | Ansible Basics (configuration and change management) | ALL    | [PDF](virt/ansible/intro-ansible.pdf)                   | Lab: Ansible Setup [HTML](virt/ansible/ansible-setup.html) |
 | | |         |                                                   | Lab: Ansible Playbook [HTML](virt/ansible/first-playbook.html) |
 | | |         |                                                   | Lab: Ansible Variables and templates [HTML](virt/ansible/variables-templates.html)  |
