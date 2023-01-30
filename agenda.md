@@ -31,8 +31,8 @@ CS | Chatur Ratna Shakya | chatur(at)pch(dot)net       | [PCH][1]       | Nepal
 | Session 1.1.1 | Welcome | CS | [PDF](virt/welcome-intro/welcome) |  |
 | Session 1.1.2 | Introduction to Virtualization | CS | [PDF](virt/welcome-intro/intro-virt) |  |
 | Session 1.2 | Desktop Virtualization: VirtualBox | CS | [PDF](virt/virt-desktop/virt-desktop) | Lab: VirtualBox Installation [HTML](virt/virt-desktop/exercise1) |
-| Session 1.3    | Snapshots | CS    | [PDF](virt/virt-desktop/snapshots)                   | Lab: Snapshots [HTML](virt/virt-desktop/exersise2) |
-| Session 1.4    | Ansible Basics (configuration and change management) | ALL    | [PDF](virt/ansible/intro-ansible.pdf)                   | Lab: Ansible Setup [HTML](virt/ansible/ansible-setup.html) |
+| Session 1.3    | Snapshots | CS | [PDF](virt/virt-desktop/snapshots) | Lab: Snapshots [HTML](virt/virt-desktop/exersise2) |
+| Session 1.4    | Virtualization Network Modes | CS | [PDF](virt/virt-desktop/network)                   | Lab: Ansible Setup [HTML](virt/ansible/ansible-setup.html) |
 | | |         |                                                   | Lab: Ansible Playbook [HTML](virt/ansible/first-playbook.html) |
 | | |         |                                                   | Lab: Ansible Variables and templates [HTML](virt/ansible/variables-templates.html)  |
 |   **DAY 2**    |                           |         |                                                   |                                        |

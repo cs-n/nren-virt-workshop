@@ -318,9 +318,9 @@ If you continue to use this VM outside the classroom, you will find that the HTT
 ~~~~bash
 Acquire::http::Proxy "http://apt.lab.workalaya.net:3142/";
 ~~~~
+
 and then run *`apt-get update`*. But don't do this until after the end of the system administration section of the workshop.
 
 ----
 
 [Return to Detailed agenda](../../agenda.md)
-----------------------------------------------

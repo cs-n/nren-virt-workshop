@@ -115,13 +115,13 @@ This material is licensed under a Creative Commons Attribution-NonCommercial 4.0
 - We are not worried about datacentre-grade scalability
 
 ---
+
 <style scoped>
 img {
     float: right;
     width: 30%;
     margin: auto -20px;
 }
-
 </style>
 
 ## Oracle VirtualBox
@@ -134,6 +134,7 @@ img {
 - cross-platform virtualization application
 
 ---
+
 <style scoped>
 blockquote {
     border-top: 0.1em dashed #555;
@@ -147,6 +148,7 @@ blockquote:after {
     content:"";
 }
 </style>
+
 ## Why VirtualBox?
 
 - Pros:
