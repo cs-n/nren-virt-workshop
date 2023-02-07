@@ -39,6 +39,7 @@ Copy the appropriate file for your operating system:
 
 Install it by double-clicking,
 ![vagrant-install-linux](../images/vagrant-install-linux.png)
+
 ![vagrant-install-linux](../images/vagrant-install-linux1.png)
 
 or from the command line using this command:
