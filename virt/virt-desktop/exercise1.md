@@ -19,10 +19,10 @@ Separate instructions follow for Mac OSX, Windows and Linux. Once you have insta
 ### Mac OSX ###
 
 Double-click on the disk image file **`VirtualBox-x.x.x-xxxxx-OSX.dmg`**
-![VirtualBox Disk Image](virtualbox-disk-image.png)
+![VirtualBox Disk Image](../images/virtualbox-disk-image.png)
 Double-click on **`VirtualBox.pkg`** and follow the installer.
-![VirtualBoc Install Start](virtualbox-install-start.png)
-![VirtualBox Install Finish](virtualbox-install-finish.png)
+![VirtualBoc Install Start](../images/virtualbox-install-start.png)
+![VirtualBox Install Finish](../images/virtualbox-install-finish.png)
 Open the Applications folder and double-click on VirtualBox. You can lock its icon onto the Dock to make it quicker to find in future. The Host Key by default is the Left Cmd key.
 
 ### Windows ###
@@ -72,8 +72,8 @@ Copy the appropriate file for your operating system:
   - virtualbox-x.x_x.x.xx-xxxxxx~Ubuntu~bionic_amd64.deb for a 64-bit system
 
 Install it by double-clicking,
-![](virtualbox-install-linux.png)
-![](virtualbox-install-linux1.png)
+![](../images/virtualbox-install-linux.png)
+![](../images/virtualbox-install-linux1.png)
 
 or from the command line using this command:
 ~~~~bash
@@ -99,7 +99,7 @@ Find the appropriate Ubuntu ISO image (e.g. **`ubuntu-14.04.5-server-i386.iso`**
 ### New Virtual Machine ###
 In the VirtualBox Manager window, click on the "New" button (a blue spiky circle)
 
-![](buttons.png)
+![](../images/buttons.png)
 
 The first screen asks for Name and operating system
 
@@ -140,7 +140,7 @@ Click on the CD icon by "Empty". To the right you will see:
   - CD/DVD Drive: IDE Secondary Master, and another CD icon
 Click on this other CD icon. From the menu which appears, select "Choose a virtual CD/DVD disk file..."
 
-![](choose-cd-image.png)
+![](../images/choose-cd-image.png)
 
 Browse to the directory where you copied the ubuntu server ISO image, and select it.
 
@@ -170,7 +170,7 @@ Select your language, and press F3 if you want to select a non-US keyboard layou
 
 Next, press F4 and select "Install a minimal virtual machine".
 
-![](modes.png)
+![](../images/modes.png)
 
 This selects the minimum number of packages to get a very basic system.
 
@@ -185,14 +185,14 @@ We do strongly suggest the following settings:
 * Encrypt your home directory? No
 * Partitioning method: Guided - use entire disk
 
-![](partitioning.png)
+![](../images/partitioning.png)
 
 It will say that it will use the entire disk sda, which is about 8.6GB and is an "ATA VBOX HARDDISK"
 
 Allow it to write changes to the disk. Remember, this is safe - you're not overwriting your real hard drive, it's only writing into the virtual disk file you created before.
 
-* For HTTP proxy please enter http://apt.lab.workalaya.net:3142/ unless the instructors tell you otherwise. This will speed up the installation by using a local cache of packages.
-![](proxy.png)
+* For HTTP proxy please leave it blank unless the instructors tell you otherwise. This will speed up the installation by using a local cache of packages.
+![](../images/proxy.png)
 
 * No automatic updates
 * When you get to "Choose software to install", move to OpenSSH Server and hit Space to select it, but leave everything else unselected.
@@ -311,15 +311,6 @@ If you want to copy-paste between the VM and your host machine, you need to enab
 *`Devices > Shared Clipboard > Bidirectional`*
 
 Finally, you may also need to open a terminal and run VBoxClient-all in the guest OS before copy-paste works.
-
-### Getting rid of the proxy ###
-If you continue to use this VM outside the classroom, you will find that the HTTP proxy (apt.ws.nsrc.org) is not available. To disable it you need to edit the file /etc/apt/apt.conf and remove or comment out this line:
-
-~~~~bash
-Acquire::http::Proxy "http://apt.lab.workalaya.net:3142/";
-~~~~
-
-and then run *`apt-get update`*. But don't do this until after the end of the system administration section of the workshop.
 
 ----
 

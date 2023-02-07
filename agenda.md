@@ -27,12 +27,12 @@ CS | Chatur Ratna Shakya | chatur(at)pch(dot)net       | [PCH][1]       | Nepal
 ### **Sessions** ###
 
 |   DAY 1        | Topic                     | Inst    | Presentations                                     | Exercises                              |
-|------------------------|---------------------------|---------|---------------------------------------------------|----------------------------------------|
+|----------------|---------------------------|---------|---------------------------------------------------|----------------------------------------|
 | Session 1.1.1 | Welcome | CS | [PDF](virt/welcome-intro/welcome) |  |
 | Session 1.1.2 | Introduction to Virtualization | CS | [PDF](virt/welcome-intro/intro-virt) |  |
 | Session 1.2 | Desktop Virtualization: VirtualBox | CS | [PDF](virt/virt-desktop/virt-desktop) | Lab: VirtualBox Installation [HTML](virt/virt-desktop/exercise1) |
 | Session 1.3    | Snapshots | CS | [PDF](virt/virt-desktop/snapshots) | Lab: Snapshots [HTML](virt/virt-desktop/exersise2) |
-| Session 1.4    | Virtualization Network Modes | CS | [PDF](virt/virt-desktop/network)                   | Lab: Port forwarding [HTML](virt/virt-desktop/exercise3) |
+| Session 1.4    | Virtualization Network Modes | CS | [PDF](virt/virt-desktop/network) | Lab: Port forwarding [HTML](virt/virt-desktop/exercise3) |
 |   **DAY 2**    |                           |         |                                                   |                                        |
 | Session 2.1 | Vagrant | CR | [PDF](virt/vagrant/vagrant-intro) | Lab: Vagrant Installation [HTML](virt/vagrant/ex-vagrant-install) |
 | | | |  | Lab: Getting Started with Vagrant [HTML](virt/vagrant/ex1) |
