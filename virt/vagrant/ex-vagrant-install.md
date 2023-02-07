@@ -22,6 +22,14 @@ $
 
 Double-click on the executable vagrant_2.2.5_x86_64.msi and follow the install wizard with default settings. Give it permission to install the device drivers.
 
+![vr1](../images/vr1.png)
+![vr2](../images/vr2.png)
+![vr3](../images/vr3.png)
+![vr4](../images/vr4.png)
+![vr5](../images/vr5.png)
+![vr6](../images/vr6.png)
+![vr7](../images/vr7.png)
+
 ### Linux ###
 
 Copy the appropriate file for your operating system:

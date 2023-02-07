@@ -29,6 +29,17 @@ Open the Applications folder and double-click on VirtualBox. You can lock its ic
 
 Double-click on the executable **`VirtualBox-x.x.x-xxxxx-Win.exe`** and follow the install wizard with default settings. Give it permission to install the device drivers.
 
+![vb1](../images/vb1.png)
+![vb2](../images/vb2.png)
+![vb3](../images/vb3.png)
+![vb4](../images/vb4.png)
+![vb5](../images/vb5.png)
+![vb6](../images/vb6.png)
+![vb7](../images/vb7.png)
+![vb8](../images/vb8.png)
+![vb9](../images/vb9.png)
+
+
 Start VirtualBox using the icon on the desktop or in the start menu.
 
 !!! Tip: Note
