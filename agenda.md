@@ -40,23 +40,12 @@ CS | Chatur Ratna Shakya | chatur(at)pch(dot)net       | [PCH][1]       | Nepal
 | | | |  | Lab: Vagrant Advanced Option[HTML](virt/vagrant/ex2) |
 | | | |  | Lab: Vagrant Workflows [HTML](virt/vagrant/ex3) |
 | | | |  | Lab: Vagrant Multiple Hosts [HTML](virt/vagrant/ex4) |
-| Session 2.2 | Packer | CS | [PDF](virt/packer/packer-intro) | Lab: VirtualBox Installation [HTML](virt/virt-desktop/exercise1) |
+| Session 2.2 | Packer | CS | [PDF](virt/packer/packer-intro) | Lab: Packer Installation [HTML](virt/packer/ex-packer-install) |
+| | | |  | Lab: Building Mikrotik Image [HTML](virt/packer/ex-mikrotik) |
+| | | |  | Lab: Building Debian 11 Image [HTML](virt/packer/ex-debian) |
+| | | |  | Lab: Building Microsoft Windows 10 Image [HTML](virt/packer/ex-windows) |
 | **DAY3** | | | | |
-| Session 3.1 | Network Documentation | DK | [PDF](virt/netdot/network-documentation-and-netdot.pdf) | LAB: Working with Netdot [HTML](virt/netdot/exercises-netdot.html) |
-| Session 3.2 | Configuration management with RANCID | SB | [PDF](virt/rancid/config-management-rancid.pdf) | Lab: RANCID [HTML](virt/rancid/exercises-rancid.html) |
-| Session 3.3 | NetFlow | CR | [PDF](virt/netflow/netflow.pdf) | Lab: Flow export (Cisco) [HTML](virt/netflow/exercise1-flow-export.html) |
 
 ### **Additional Information** ###
-
-- [A ZIP archive of these materials](https://github.com/cs-n/npnog5-virt/archive/master.zip)
-- [A Feedback Form](https://forms.gle/fb5neg74rdS8qWHz8)
-
-### **Required Software** ###
-
-- [Putty](https://www.putty.org/)
-
-### **References** ###
-
-- [The Linux System Administrator's Guide](http://www.tldp.org/LDP/sag/html/index.html)
 
 ---
