@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>exercise1.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="virtualbox-lab">VirtualBox lab</h1>
+<p><a href="../../agenda.html">Return to Detailed agenda</a></p>
+<h2 id="overview">Overview</h2>
+<p>You will install VirtualBox on your laptop, create a VM, and install a guest operating system.</p>
+<p>Note: the files you will need (VirtualBox software and ISO images) will be provided either on a USB stick or on the workshop web server. Please don't download large files directly from the Internet.</p>
+<p>The USB stick is preferred as it will be faster than the shared wireless.</p>
+<p>If your laptop has less than 1GB of RAM or less than 5GB of spare disk space, please check with the instructors if it will be suitable.</p>
+<h2 id="install-virtualbox">Install VirtualBox</h2>
+<p>Separate instructions follow for Mac OSX, Windows and Linux. Once you have installed VirtualBox, move onto the section entitled &quot;Create a Virtual Machine&quot;.</p>
+<h3 id="mac-osx">Mac OSX</h3>
+<p>Double-click on the disk image file <strong><code>VirtualBox-x.x.x-xxxxx-OSX.dmg</code></strong>
+<img src="../images/virtualbox-disk-image.png" alt="VirtualBox Disk Image">
+Double-click on <strong><code>VirtualBox.pkg</code></strong> and follow the installer.
+<img src="../images/virtualbox-install-start.png" alt="VirtualBoc Install Start">
+<img src="../images/virtualbox-install-finish.png" alt="VirtualBox Install Finish">
+Open the Applications folder and double-click on VirtualBox. You can lock its icon onto the Dock to make it quicker to find in future. The Host Key by default is the Left Cmd key.</p>
+<h3 id="windows">Windows</h3>
+<p>Double-click on the executable <strong><code>VirtualBox-x.x.x-xxxxx-Win.exe</code></strong> and follow the install wizard with default settings. Give it permission to install the device drivers.</p>
+<p><img src="../images/vb1.png" alt="vb1">
+<img src="../images/vb2.png" alt="vb2">
+<img src="../images/vb3.png" alt="vb3">
+<img src="../images/vb4.png" alt="vb4">
+<img src="../images/vb5.png" alt="vb5">
+<img src="../images/vb6.png" alt="vb6">
+<img src="../images/vb7.png" alt="vb7">
+<img src="../images/vb8.png" alt="vb8">
+<img src="../images/vb9.png" alt="vb9"></p>
+<p>Start VirtualBox using the icon on the desktop or in the start menu.</p>
+<p>!!! Tip: Note
+If you have Windows 8 and have enabled Hyper-V, you will need to [disable](&quot;http://superuser.com/questions/500166/intel-vt-x-disappeared-after-upgrading-to-windows-8&quot; target=&quot;_blank&quot;) [Hyper-V](&quot;http://social.technet.microsoft.com/Forums/windows/en-US/118561b9-7155-46e3-a874-6a38b35c67fd/hyperv-disables-vtx-for-other-hypervisors?forum=w8itprogeneral&quot; target=&quot;_blank&quot;) before VirtualBox can work.</p>
+<p><strong>Checking VT-x</strong></p>
+<p>VirtualBox doesn't require VT-x or AMD-V (except when running 64-bit guests), but it will work faster with it.</p>
+<p>You can check whether hardware virtualization is enabled on your laptop by downloading and running the [Hardware-Assisted Virtualization Detection Tool](&quot;http://www.microsoft.com/en-us/download/details.aspx?id=592&quot; target=&quot;_blank&quot;)</p>
+<p>If it says &quot;this computer does not have hardware-assisted virtualization&quot; then your laptop may be so old that it does not have this feature, or it could just be disabled in the BIOS.</p>
+<p>Restart your laptop, go into BIOS Setup, then look for a setting which may be under &quot;Advanced BIOS Features&quot; or &quot;Security&quot;.</p>
+<pre class="hljs"><code><div>Virtualization Technology (VT-x)
+</div></code></pre>
+<p>Ensure it is set to Enabled. (If you see VT-d, you can turn that on as well, but it's only important if you want to give your guest VM direct access to some of the host hardware)</p>
+<p>After changing this setting and saving, some systems require you to fully power off and power on again.</p>
+<p>In extreme cases you may need to [disable and re-enable VT-x](&quot;https://forums.virtualbox.org/viewtopic.php?p=108857&quot; target=&quot;_blank&quot;)</p>
+<h3 id="for-linux-ubuntu-1404-1604-1610-1802">For Linux (Ubuntu 14.04, 16.04, 16.10, 18.02)</h3>
+<p>Copy the appropriate file for your operating system:</p>
+<ul>
+<li>
+<p>14.04</p>
+<ul>
+<li>virtualbox-x.x_x.x.x-xxxxx~Ubuntu~trusty_i386.deb for a 32-bit system</li>
+<li>virtualbox-x.x_x.x.x-xxxxx~Ubuntu~trusty_amd64.deb for a 64-bit system</li>
+</ul>
+</li>
+<li>
+<p>16.04</p>
+<ul>
+<li>virtualbox-x.x_x.x.x-xxxxx~Ubuntu~xenial_i386.deb for a 32-bit system</li>
+<li>virtualbox-x.x_x.x.x-xxxxx~Ubuntu~xenial_amd64.deb for a 64-bit system</li>
+</ul>
+</li>
+<li>
+<p>16.10</p>
+<ul>
+<li>virtualbox-x.x_x.x.x-xxxxx~Ubuntu~yakkety_i386.deb for a 32-bit system</li>
+<li>virtualbox-x.x_x.x.x-xxxxx~Ubuntu~yakkety_amd64.deb for a 64-bit system</li>
+</ul>
+</li>
+<li>
+<p>18.04 / 18.10 / 19.04</p>
+<ul>
+<li>virtualbox-x.x_x.x.xx-xxxxxx~Ubuntu~bionic_amd64.deb for a 64-bit system</li>
+</ul>
+</li>
+</ul>
+<p>Install it by double-clicking,
+<img src="../images/virtualbox-install-linux.png" alt="">
+<img src="../images/virtualbox-install-linux1.png" alt=""></p>
+<p>or from the command line using this command:</p>
+<pre class="hljs"><code><div>$ sudo dpkg -i virtualbox-x.x_x.x.x-xxxxx~Ubuntu~xxxxxxx_xxx.deb
+</div></code></pre>
+<p>Start the GUI by typing &quot;VirtualBox&quot;</p>
+<p>To check whether your laptop has VT-x, at a command line type</p>
+<pre class="hljs"><code><div>$ egrep <span class="hljs-string">'(vmx|svm)'</span> /proc/cpuinfo
+</div></code></pre>
+<p>If you see at least one line containing vmx or svm, the CPU has this capability, although it is not necessarily enabled in the BIOS.</p>
+<h2 id="create-a-virtual-machine">Create a virtual machine</h2>
+<p>You are now going to create a virtual machine and install Ubuntu inside it.</p>
+<p>You will install Ubuntu Server Edition, as it is faster to install than the Desktop Edition, and will give you an opportunity to practice administering a system using the command line.</p>
+<p>The 32-bit (i386) version is fine because we do not expect to give this VM more than 4GB of RAM. For a real server you would more likely install the 64-bit (amd64) version instead.</p>
+<p>Find the appropriate Ubuntu ISO image (e.g. <strong><code>ubuntu-14.04.5-server-i386.iso</code></strong>). Make a folder on your laptop for ISO images, and copy the Ubuntu ISO image there.</p>
+<h3 id="new-virtual-machine">New Virtual Machine</h3>
+<p>In the VirtualBox Manager window, click on the &quot;New&quot; button (a blue spiky circle)</p>
+<p><img src="../images/buttons.png" alt=""></p>
+<p>The first screen asks for Name and operating system</p>
+<p>Enter:</p>
+<ul>
+<li>Name: ubuntu-1 (or any other name you like)</li>
+<li>Type: Linux</li>
+<li>Version: Ubuntu (or Ubuntu 64-bit if you're installing 64-bit version)</li>
+<li>click Next
+The next screen is the memory size. Set the memory down to 512 MB, unless your machine has enough RAM for the default (1024 MB).</li>
+</ul>
+<p>The next screen asks for Hard drive. Select &quot;Create a virtual hard drive now&quot; and click &quot;Create&quot;</p>
+<p>Select the default VDI (VirtualBox Disk Image) and click Next.</p>
+<p>Choose &quot;Dynamically allocated&quot; and click Next. (This option allocates disk space only when the guest OS writes to the virtual disk)</p>
+<p>Accept the default size of 8.00 GB. Note that this won't actually use 8GB straight away on your laptop, but will allow it to grow up to 8GB. Click Create.</p>
+<p>Now you will see the VM created but in state &quot;Powered Off&quot;</p>
+<h3 id="insert-virtual-cd">Insert virtual CD</h3>
+<p>When you start a VM for the first time, VirtualBox will automatically prompt you for a CD-ROM image. However you are going to do it the manual way so that you learn your way around the settings.</p>
+<p>Before starting the VM, click on the &quot;Settings&quot; button (an orange sprocket)</p>
+<p>Click on Storage.</p>
+<p>You should see:</p>
+<ul>
+<li>Controller: IDE</li>
+<li>... Empty (with a CD icon)</li>
+<li>Controller: SATA</li>
+<li>... ubuntu-1.vdi</li>
+</ul>
+<p>Click on the CD icon by &quot;Empty&quot;. To the right you will see:</p>
+<ul>
+<li>Attributes:
+<ul>
+<li>CD/DVD Drive: IDE Secondary Master, and another CD icon
+Click on this other CD icon. From the menu which appears, select &quot;Choose a virtual CD/DVD disk file...&quot;</li>
+</ul>
+</li>
+</ul>
+<p><img src="../images/choose-cd-image.png" alt=""></p>
+<p>Browse to the directory where you copied the ubuntu server ISO image, and select it.</p>
+<p>You should now see:</p>
+<ul>
+<li>Controller: IDE</li>
+<li>... ubuntu-16.04-1-server-i386</li>
+<li>Controller: SATA</li>
+<li>... ubuntu-1.vdi
+Click OK.</li>
+</ul>
+<h3 id="start-the-vm">Start the VM</h3>
+<p>Select the VM and click the green Start arrow - or simply double-click the VM - and your VM will start.</p>
+<p>You may get some warnings - read them. One will read something like this:</p>
+<p><em><code>&quot;You have Auto capture keyboard option turned on ... You can press the host key at any time to uncapture the keyboard and mouse and return them to normal operation ... The host key is currently defined as Right Ctrl&quot;</code></em></p>
+<p>Have a look at the bottom right-hand corner of the window. It should show a reminder of what the host key is set to, next to a small downward arrow.</p>
+<p>The Ubuntu installer should start. Click inside the window. Note that you have to press the host key to get your mouse out again.</p>
+<p>If this is the first time you've installed Ubuntu, ask a neighbor or an instructor for help if you get stuck.</p>
+<p>Select your language, and press F3 if you want to select a non-US keyboard layout.</p>
+<p>Next, press F4 and select &quot;Install a minimal virtual machine&quot;.</p>
+<p><img src="../images/modes.png" alt=""></p>
+<p>This selects the minimum number of packages to get a very basic system.</p>
+<p>Then select &quot;Install Ubuntu Server&quot; from the front menu, and follow the prompts. Use Tab to move around the screen, Enter to select something.</p>
+<p>Follow the prompts for timezone, keyboard and so on. It's quickest to say &quot;No&quot; when asked if you want to auto-detect the keyboard layout; you can then manually select the US English layout or whichever is appropriate.</p>
+<p>Use whatever hostname, username and password you like. This is your own VM to take away and keep! Ask your neighbor or an instructor if you need help.</p>
+<p>We do strongly suggest the following settings:</p>
+<ul>
+<li>Encrypt your home directory? No</li>
+<li>Partitioning method: Guided - use entire disk</li>
+</ul>
+<p><img src="../images/partitioning.png" alt=""></p>
+<p>It will say that it will use the entire disk sda, which is about 8.6GB and is an &quot;ATA VBOX HARDDISK&quot;</p>
+<p>Allow it to write changes to the disk. Remember, this is safe - you're not overwriting your real hard drive, it's only writing into the virtual disk file you created before.</p>
+<ul>
+<li>
+<p>For HTTP proxy please leave it blank unless the instructors tell you otherwise. This will speed up the installation by using a local cache of packages.
+<img src="../images/proxy.png" alt=""></p>
+</li>
+<li>
+<p>No automatic updates</p>
+</li>
+<li>
+<p>When you get to &quot;Choose software to install&quot;, move to OpenSSH Server and hit Space to select it, but leave everything else unselected.</p>
+</li>
+<li>
+<p>Install GRUB boot loader to the master boot record? Yes.</p>
+</li>
+</ul>
+<h2 id="restart">Restart</h2>
+<p>Once the installation is complete, you will be prompted to restart.</p>
+<p>If the machine starts up with the virtual CD-ROM still attached, you may need to remove it. Go to <em><code>Settings &gt; Storage</code></em> as before, click on the CD icon under Controller IDE, click on the second CD icon, select &quot;Remove disk from virtual drive&quot;. Then restart the VM again.</p>
+<p>After a few seconds you should get an Ubuntu login prompt. Login with the username and password you created.</p>
+<h2 id="try-the-console">Try the console</h2>
+<p>You a sitting in front of a server text console. Just like on a real PC, you can switch between virtual consoles using Ctrl-Alt-F1 to Ctrl-Alt-F6.</p>
+<p>Here are a few basic commands you can try: the &quot;$&quot; is the prompt you will see, so don't type it.</p>
+<pre class="hljs"><code><div>$ uptime        <span class="hljs-comment"># how long machine is running, how busy it is</span>
+$ uname -a      <span class="hljs-comment"># information about the kernel</span>
+$ df -h         <span class="hljs-comment"># free disk space in (h)uman readable form</span>
+$ ls /          <span class="hljs-comment"># list the root directory</span>
+</div></code></pre>
+<h2 id="mouse-cursor-optional">Mouse cursor (Optional)</h2>
+<p>If you want a mouse cursor in Ubuntu Server, you need to install the package &quot;gpm&quot;. These commands need to be run with &quot;root&quot; or superuser privileges, so you prefix them with &quot;sudo&quot;.</p>
+<pre class="hljs"><code><div>$ sudo apt-get update          <span class="hljs-comment"># update the index of downloadable packages</span>
+$ sudo apt-get install gpm     <span class="hljs-comment"># install the package</span>
+</div></code></pre>
+<p>Once you've done this, you should be able to copy-paste within your VM by using the left and right buttons to select, and middle button to paste.</p>
+<p>If this doesn't work, you may need to disable &quot;Mouse Integration&quot; under the &quot;Input&quot; Menu.</p>
+<p>If you want to be able to copy-paste between the VM and your laptop, see the optional exercises at the end.</p>
+<h2 id="acpi-shutdown">ACPI shutdown</h2>
+<p>Try selecting <em><code>Machine &gt; ACPI shutdown</code></em> from VirtualBox, and you should see that this triggers the virtual machine to shut itself down. It takes only a couple of seconds. Then you can restart your virtual machine.</p>
+<p>If nothing happens, it could be because your server doesn't have an acpi daemon installed to respond to the request. If so, you can install it like this:</p>
+<pre class="hljs"><code><div>$ sudo apt-get install acpid
+</div></code></pre>
+<h1 id="additional-exercises">Additional exercises</h1>
+<p>If you complete the basic Ubuntu install early, here are some additional things you can do, as well as exploring the Ubuntu install you've just done.</p>
+<h2 id="install-virtualbox-guest-additions">Install VirtualBox Guest Additions</h2>
+<p>The &quot;guest additions&quot; are some extra code which can be installed inside the guest OS to improve keyboard and mouse integration, and enable things like copy-paste and easy file transfer between host and guest.</p>
+<ul>
+<li>In VirtualBox, select <em><code>Devices &gt; Insert Guest Additions CD image...</code></em></li>
+<li>Inside the VM (as the root user) mount the CD image and run the installer script.</li>
+</ul>
+<pre class="hljs"><code><div>$ sudo -s                                   <span class="hljs-comment"># enter a root shell</span>
+<span class="hljs-comment"># apt-get install build-essential dkms      # we need these packages</span>
+<span class="hljs-comment"># mount /dev/cdrom /mnt                     # mount the CD-ROM</span>
+<span class="hljs-comment"># /mnt/VBoxLinuxAdditions.run               # run the installer</span>
+</div></code></pre>
+<p>!!! Tip: Note
+It is normal to see an error about the window system, because we have installed the server version of Ubuntu with no graphical interface</p>
+<pre class="hljs"><code><div>Installing the Window System drivers ...fail!
+(Could not find the X.Org or XFree86 Window System.)
+</div></code></pre>
+<p>When it has finished, you can unmount the CD image:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># umount /mnt</span>
+<span class="hljs-comment"># exit                                      # leave the root shell</span>
+$
+</div></code></pre>
+<p>You may need to repeat this every time you install an updated kernel from Ubuntu.</p>
+<p>Once this is done, you should find that, if that was not already the case, mousing over the window works without having to capture and release the mouse any more.</p>
+<p>Also, it's now possible to share folders between your Host (laptop) and the virtual machine. We won't look at this now.</p>
+<p>!!! Tip: Note
+copy-paste between guest and host only works with a desktop GUI.</p>
+<h3 id="add-a-desktop-to-your-server">Add a desktop to your server</h3>
+<p>Your installed Ubuntu Server VM can have a desktop added. There are many to choose from, but LXDE is a compact and lightweight one. All you need to do is:</p>
+<pre class="hljs"><code><div>$ sudo apt-get install xorg lxde lxdm
+</div></code></pre>
+<p>When prompted for which graphical login manager, choose 'lxdm'</p>
+<pre class="hljs"><code><div>$ sudo service lxdm start
+</div></code></pre>
+<p>This should switch to a graphical interface where you can login again. You can still get to the text console with Ctrl-Alt-F1, and return to the graphical interface with Ctrl-Alt-F7.</p>
+<p>Inside your VM you probably want to disable the screensaver (<em><code>Start &gt; Preferences &gt; Screensaver</code></em>) because the default screensavers are very CPU intensive and will drain your laptop battery!</p>
+<p>The virtual console screen may be larger than the window on your desktop, so you may need to scroll down to see the bottom line of the console where the LXDE start button is. <em><code>Start &gt; Accessories &gt; LXTerminal</code></em> will give you a terminal window.</p>
+<h3 id="reinstall-guest-additions">Reinstall guest additions</h3>
+<p>When the graphical interface is present, you can reinstall the guest additions (just open the file manager and double-click on <em><code>autorun.sh</code></em>)</p>
+<p>Once it,s done, reboot your VM.</p>
+<p>Now, whenever you resize the window the desktop should auto-resize to fit, avoiding the need to scroll.</p>
+<p>Furthermore, the &quot;seamless windows&quot; feature should now be available (<em><code>View &gt; Switch to seamless mode</code></em>). This scales the VM to fit your available screen and removes the background, so VM windows sit side-by-side with your regular windows.</p>
+<h3 id="copy-paste">Copy-paste</h3>
+<p>If you want to copy-paste between the VM and your host machine, you need to enable it in VirtualBox by selecting</p>
+<p><em><code>Devices &gt; Shared Clipboard &gt; Bidirectional</code></em></p>
+<p>Finally, you may also need to open a terminal and run VBoxClient-all in the guest OS before copy-paste works.</p>
+<hr>
+<p><a href="../../agenda.html">Return to Detailed agenda</a></p>
+
+</body>
+</html>

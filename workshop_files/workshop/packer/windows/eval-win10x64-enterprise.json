@@ -1,0 +1,90 @@
+{
+  "builders": [
+    {
+      "type": "virtualbox-iso",
+      "iso_url": "{{ user `iso_url` }}",
+      "iso_checksum": "{{ user `iso_checksum` }}",
+      "floppy_files": [
+        "floppy/eval-win10x64-enterprise/Autounattend.xml",
+        "floppy/00-run-all-scripts.cmd",
+        "floppy/01-install-wget.cmd",
+        "floppy/_download.cmd",
+        "floppy/_packer_config*.cmd",
+        "floppy/_post_update_install.bat",
+        "floppy/autologon.bat",
+        "floppy/disablewinupdate.bat",
+        "floppy/fixnetwork.ps1",
+        "floppy/install-winrm.cmd",
+        "floppy/passwordchange.bat",
+        "floppy/powerconfig.bat",
+        "floppy/slim_win10.bat",
+        "floppy/update.bat",
+        "floppy/zz-start-transports.cmd",
+        "3rdparty/curl.exe"
+      ],
+      "shutdown_command": "{{ user `shutdown_command`}}",
+      "post_shutdown_delay": "30s",
+      "communicator": "winrm",
+      "guest_additions_mode": "attach",
+      "guest_additions_url": "{{user `guest_additions_url`}}",
+      "guest_os_type": "Windows10_64",
+      "headless": "{{ user `headless` }}",
+      "vboxmanage": [
+        [
+          "setextradata",
+          "{{.Name}}",
+          "VBoxInternal/CPUM/IsaExts/CMPXCHG16B",
+          "1"
+        ]
+      ],
+      "cpus": "{{ user `cpus` }}",
+      "memory": "{{ user `memory` }}",
+      "disk_size": "{{user `disk_size`}}",
+      "hard_drive_interface": "sata",
+      "vm_name": "{{user `vm_name`}}",
+      "winrm_username": "vagrant",
+      "winrm_password": "vagrant",
+      "winrm_timeout": "10000s"
+    }
+  ],
+  "post-processors": [
+    {
+      "compression_level": 1,
+      "keep_input_artifact": false,
+      "output": "{{user `box_directory`}}{{user `vm_name`}}.box",
+      "type": "vagrant",
+      "vagrantfile_template": "tpl/vagrantfile-eval-win10x64-enterprise.tpl"
+    }
+  ],
+  "provisioners": [
+    {
+      "environment_vars": [
+        "UPDATE={{user `update`}}"
+      ],
+      "scripts": [
+        "script/vagrant.bat",
+        "script/vmtool.bat",
+        "script/clean.bat",
+        "script/ultradefrag.bat",
+        "script/uninstall-7zip.bat",
+        "script/sdelete.bat"
+      ],
+      "type": "windows-shell"
+    }
+  ],
+  "variables": {
+    "vm_name": "eval-win10x64-enterprise",
+    "cpus": "2",
+    "memory": "2048",
+    "disk_size": "20000",
+    "hw_version": "7",
+    "iso_url1": "https://software-download.microsoft.com/download/pr/19042.508.200927-1902.20h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso",
+    "iso_url": "../../iso/19042.508.200927-1902.20h2_release_svc_refresh_CLIENTENTERPRISEEVAL_OEMRET_x64FRE_en-us.iso",
+    "iso_checksum": "574F00380EAD9E4B53921C33BF348B5A2FA976FFAD1D5FA20466DDF7F0258964",
+    "guest_additions_url": "",
+    "box_directory": "../../box/",
+    "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c Packer_Shutdown",
+    "headless": "false",
+    "update": "true"
+  }
+}

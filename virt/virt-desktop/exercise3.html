@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>exercise3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="virtualbox-lab-port-forwarding">VirtualBox lab: Port Forwarding</h1>
+<h2 id="objective">Objective</h2>
+<p>You will use the Port Forwarding network feature of VirtualBox, and configure it to access your guest VM via SSH.</p>
+<h2 id="why-port-forwarding">Why Port Forwarding ?</h2>
+<p>By default your VM is created with a network connection in NAT mode.</p>
+<p>We have discussed this earlier, but as a reminder:</p>
+<ul>
+<li>in NAT mode, the Guest can access the outside world, but does so while being NAT'ed behind the IP of the Host.</li>
+<li>the Host, and other machines outside, cannot access the Guest.</li>
+</ul>
+<p>Everything is fine while you are using the console, as we have done so far, but what if you want to:</p>
+<ul>
+<li>access a service on the Guest, a web server for example ?</li>
+<li>log in to the Guest using SSH ?</li>
+</ul>
+<h2 id="using-port-forwarding">Using Port Forwarding</h2>
+<p>To enable port forwarding, open the settings for your virtual machine.</p>
+<ul>
+<li>You can do this from the VirtualBox Manager (right click on the VM name on the left side of the window, then choose <code>Settings...</code>), then choose Network</li>
+</ul>
+<p><img src="../images/vb-net-settings1.png" alt="vb-net-settings"></p>
+<ul>
+<li>Alternatively, click on the Network Settings icon in bottom toolbar of your running VM window</li>
+</ul>
+<p><img src="../images/vb-net-settings.png" alt="vb-net-settings"></p>
+<p>Verify that <code>NAT</code> is selected in the <code>Attached to:</code> selector.</p>
+<p>At the bottom of the window, click on the <code>Port Forwarding</code> button.</p>
+<p>You are then presented with a form where you can add new forwardings.</p>
+<h2 id="adding-a-forwarding">Adding a forwarding</h2>
+<p>What we are going to do is pick a port on our Host, for example 2222, and forward TCP connections received on this port, to port 22/TCP (SSH) on our guest.</p>
+<p>To do this, click on the green <em>(+)</em> button on the right.</p>
+<p>Once you click it, a new row appears, ready to be filled out:</p>
+<p><img src="../images/vb-port-forward-form.png" alt="vb-port-forward-form"></p>
+<p>Fill it out as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Protocol</th>
+<th>Host IP</th>
+<th>Host Port</th>
+<th>Guest IP</th>
+<th>Guest Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSH</td>
+<td>TCP</td>
+<td></td>
+<td>2222</td>
+<td></td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>:</p>
+<ul>
+<li><code>Host IP</code> is set to nothing - this is on purpose, and is equivalent to saying <code>0.0.0.0</code>. It means that ANY MACHINE that can access your Host on TCP port 2222 will be able to talk to the SSH on your guest. Be careful!</li>
+</ul>
+<pre class="hljs"><code><div>If you want to disable this, and only allow connections coming from your Host to talk to the Guest, then put `127.0.0.1` instead. via the forward.[↩](#fnref1)
+</div></code></pre>
+<ul>
+<li><code>Guest IP</code> is left blank - there is no need by default to change this.</li>
+</ul>
+<p>What the above rule means is:</p>
+<p>&quot;If a TCP connection is received on the Host on TCP port 2222, send it on to the Guest on TCP port 22&quot;</p>
+<p>To apply the changes, click <code>OK</code>.</p>
+<p>You are back in the Network Settings windows. Click <code>OK</code> again to exit the Network Settings.</p>
+<p>You will probably need to restart the Virtual Machine so that the changes are applied:</p>
+<ul>
+<li>Shut down the VM (Close -&gt; ACPI Shutdown)</li>
+<li>Quit VirtualBox</li>
+<li>Restart VirtualBox</li>
+<li>Start the VM</li>
+</ul>
+<h2 id="testing-the-forwarding">Testing the forwarding</h2>
+<p>To verify that the change has been implemented:</p>
+<ul>
+<li>
+<p>Open a terminal on your Host (a DOS Command Prompt if this is Windows), and type the following command:</p>
+<p>netstat -a | more</p>
+</li>
+</ul>
+<p>Use the space bar to move one page at a time, and look for a line similar to this:</p>
+<pre class="hljs"><code><div>    tcp4       0      0  0.0.0.0.2222         *.*                    LISTEN
+</div></code></pre>
+<p>or</p>
+<pre class="hljs"><code><div>    tcp4       0      0  *.2222         *.*                    LISTEN
+</div></code></pre>
+<p>This means that your Host is listening on port 2222 for connections.</p>
+<h2 id="ssh-to-the-guest">SSH to the Guest</h2>
+<p>Now, it's time to try and connect to the Guest.</p>
+<p>To do so, use the Putty terminal emulator (if you are on Windows). For Linux and Mac users, use the built in terminal.</p>
+<p>You need to remember the username you created on your Guest! Remember, you <em>CANNOT</em> log in as root using SSH, so this will have to be the user you created.</p>
+<p>If using Windows:</p>
+<ul>
+<li>Open Putty, and in the 'Host Name (or IP address)' field, enter: '127.0.0.1', and in the 'Port' field, enter '2222', then click <code>OK</code></li>
+</ul>
+<p><img src="../images/vb-putty-ssh.png" alt="vb-putty-ssh"></p>
+<p>If everything goes well, you will be prompted to accept the host key. Click 'Yes'. We will discuss this in class.</p>
+<p><img src="../images/vb-putty-host-key.png" alt="vb-putty-host-key"></p>
+<p>You will then be prompted to <code>login as:</code>. Here you will enter the username you created previously.</p>
+<p>If using Linux or OS X:</p>
+<ul>
+<li>Linux/Mac: <code>ssh -l _username_ -p 2222 127.0.0.1</code></li>
+</ul>
+<p>... remember to replace <code>_username_</code> with the user you created!</p>
+<p>You will be prompted to accept the host key:</p>
+<pre class="hljs"><code><div>    The authenticity of host '[127.0.0.1]:2222 ([127.0.0.1]:2222)' can't be established.
+    RSA key fingerprint is ef:f3:e6:01:67:44:e4:3d:57:4a:64:80:f1:41:53:8c.
+    Are you sure you want to continue connecting (yes/no)? yes
+</div></code></pre>
+<p>You will then be prompted to enter the password for the username:</p>
+<pre class="hljs"><code><div>    [email protected]'s password:
+</div></code></pre>
+<p>Enter your password.</p>
+<p>You should now be logged in!</p>
+<h2 id="optional">Optional</h2>
+<p>Ask other participants to log into your VM - you will provide them with two parameters:</p>
+<ul>
+<li>the IP of your own laptop</li>
+<li>the user to log in with</li>
+<li>the password</li>
+</ul>
+<hr>
+<ol>
+<li>If you want to disable this, and only allow connections coming from your Host to talk to the Guest, then put <code>127.0.0.1</code> instead. via the forward.<a href="#fnref1">↩</a></li>
+</ol>
+
+</body>
+</html>
